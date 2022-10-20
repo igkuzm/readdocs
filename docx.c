@@ -60,6 +60,13 @@ readdocs_docx(const char * filename)
 						text[i++] =	*ptr++;
 				}
 	}
+	//free buf
+	free(buf);
+
+	//free xml
+	ezxml_free(xml);
+
+	//NULL-terminate text
 	text[i] = 0;
 
 	//return text
