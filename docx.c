@@ -8,9 +8,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "zip.h"
+#include "zip/src/zip.h"
 #include "readdocs.h"
-#include "ezxml.h"
+#include "ezxml/ezxml.h"
 
 /*
  * open docx and return it's text with NULL-terminated char array

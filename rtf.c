@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "readdocs.h"
-#include "cRTF.h"
+#include "cRTF/cRTF.h"
 
 struct str {
 	char * buf;

@@ -19,6 +19,12 @@ extern "C"{
 char * readdocs_docx(const char * filename);
 
 /*
+ * open doc and return it's text with NULL-terminated char array
+ */
+char * readdocs_doc(const char * filename);
+
+
+/*
  * open rtf and return it's text with NULL-terminated char array
  */
 char * readdocs_rtf(const char * filename);
