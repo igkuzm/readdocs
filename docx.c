@@ -2,7 +2,7 @@
  * File              : docx.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 20.10.2022
- * Last Modified Date: 20.10.2022
+ * Last Modified Date: 21.10.2022
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 
@@ -52,13 +52,13 @@ readdocs_docx(const char * filename)
 	ezxml_t body, p, r, t;
 	for (body = ezxml_child(xml, "w:body"); body; body = body->next)
 		for (p = ezxml_child(body, "w:p"); p; p = p->next){
-			text[i++] =	'\n';
 			for (r = ezxml_child(p, "w:r"); r; r = r->next)
 				for (t = ezxml_child(r, "w:t"); t; t = t->next){
 					char * ptr = t->txt;
 					while(*ptr)
 						text[i++] =	*ptr++;
 				}
+			text[i++] =	'\n';
 	}
 	//free buf
 	free(buf);
