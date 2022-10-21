@@ -7,3 +7,6 @@
 [submodule "zip"]
 	path = zip
 	url = https://github.com/kuba--/zip
+[submodule "libdoc"]
+	path = libdoc
+	url = https://github.com/igkuzm/libdoc
