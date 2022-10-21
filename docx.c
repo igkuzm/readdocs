@@ -38,12 +38,14 @@ readdocs_docx(const char * filename)
 	}
 
 	//allocate text
-	char * text = (char *)malloc(bufsize * sizeof(char));
+	char * text = 
+			(char *)malloc(bufsize * sizeof(char));
 	if (!text)
 		return NULL;
 
 	//parse XML
-	ezxml_t xml = ezxml_parse_str((char*)buf, bufsize);
+	ezxml_t xml = 
+			ezxml_parse_str((char*)buf, bufsize);
 	if (!xml)
 		return NULL;
 
@@ -58,16 +60,17 @@ readdocs_docx(const char * filename)
 					while(*ptr)
 						text[i++] =	*ptr++;
 				}
+			//new line for paragraph
 			text[i++] =	'\n';
 	}
+	//NULL-terminate text
+	text[i] = 0;
+
 	//free buf
 	free(buf);
 
 	//free xml
 	ezxml_free(xml);
-
-	//NULL-terminate text
-	text[i] = 0;
 
 	//return text
 	return text;
