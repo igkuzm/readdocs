@@ -51,17 +51,36 @@ readdocs_docx(const char * filename)
 
 	//fill text with data
 	size_t i = 0;
-	ezxml_t body, p, r, t;
-	for (body = ezxml_child(xml, "w:body"); body; body = body->next)
+	ezxml_t body, p, r, t, tbl, tr, tc;
+	for (body = ezxml_child(xml, "w:body"); body; body = body->next){
+		//table
+		for (tbl = ezxml_child(body, "w:tbl"); tbl; tbl = tbl->next){
+			for (tr = ezxml_child(tbl, "w:tr"); tr; tr = tr->next){
+				for (tc = ezxml_child(tr, "w:tc"); tc; tc = tc->next){
+					for (p = ezxml_child(tc, "w:p"); p; p = p->next){
+						for (r = ezxml_child(p, "w:r"); r; r = r->next){
+							for (t = ezxml_child(r, "w:t"); t; t = t->next){
+								char * ptr = t->txt;
+								while(*ptr)
+									text[i++] =	*ptr++;
+							}
+						}
+					}					
+				}
+			}
+		}
+		//text
 		for (p = ezxml_child(body, "w:p"); p; p = p->next){
-			for (r = ezxml_child(p, "w:r"); r; r = r->next)
+			for (r = ezxml_child(p, "w:r"); r; r = r->next){
 				for (t = ezxml_child(r, "w:t"); t; t = t->next){
 					char * ptr = t->txt;
 					while(*ptr)
 						text[i++] =	*ptr++;
 				}
 			//new line for paragraph
-			text[i++] =	'\n';
+			//text[i++] =	'\n';
+			}
+		}
 	}
 	//NULL-terminate text
 	text[i] = 0;
