@@ -2,7 +2,7 @@
  * File              : rtf.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 21.10.2022
- * Last Modified Date: 21.10.2022
+ * Last Modified Date: 22.10.2022
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 
@@ -18,7 +18,7 @@ struct str {
 	size_t len;
 };
 
-int callback(void *userdata, char *buf, int *t_attr, 
+int rtf_callback(void *userdata, char *buf, int *t_attr, 
 			int *nfonts, cRTFFonts *fonts, int *inBrack){
 
 	struct str * str = userdata;
@@ -60,7 +60,7 @@ readdocs_rtf(const char * filename)
 	};
 	
 	//fill str buf
-	c_rtf_parse_file(fp, &str, callback);	
+	c_rtf_parse_file(fp, &str, rtf_callback);	
 
 	//return str buf
 	return str.buf;
