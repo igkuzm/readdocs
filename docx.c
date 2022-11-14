@@ -2,7 +2,7 @@
  * File              : docx.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 20.10.2022
- * Last Modified Date: 21.10.2022
+ * Last Modified Date: 14.11.2022
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 
@@ -64,6 +64,8 @@ readdocs_docx(const char * filename)
 								while(*ptr)
 									text[i++] =	*ptr++;
 							}
+							//new line for paragraph
+							text[i++] =	'\n';
 						}
 					}					
 				}
@@ -78,7 +80,7 @@ readdocs_docx(const char * filename)
 						text[i++] =	*ptr++;
 				}
 			//new line for paragraph
-			//text[i++] =	'\n';
+			text[i++] =	'\n';
 			}
 		}
 	}
