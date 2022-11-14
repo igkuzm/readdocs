@@ -64,9 +64,9 @@ readdocs_docx(const char * filename)
 								while(*ptr)
 									text[i++] =	*ptr++;
 							}
-							//new line for paragraph
-							text[i++] =	'\n';
 						}
+						//new line for paragraph
+						text[i++] =	'\n';
 					}					
 				}
 			}
@@ -79,9 +79,9 @@ readdocs_docx(const char * filename)
 					while(*ptr)
 						text[i++] =	*ptr++;
 				}
+			}
 			//new line for paragraph
 			text[i++] =	'\n';
-			}
 		}
 	}
 	//NULL-terminate text
